@@ -1,0 +1,64 @@
+.askk {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+  padding-top: 50px;
+  width: 1000px;
+
+  margin: 0 auto;
+}
+
+.askk h1, .askk ul, .askk span, .askk p {
+  margin: 10px 0;
+  color: black;
+}
+.askk input, 
+.askk textarea {
+  width: 950px;
+  max-width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  color: black;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+}
+.askk input{
+    height: 50px;
+}
+.askk textarea {
+  height: 200px; /* Adjust height as needed */
+  resize: vertical; /* Allow vertical resizing if needed */
+}
+
+.steps{
+    padding-bottom: 100px;
+}
+ 
+ .buttonn {
+  display: block;
+  margin: 10px 0 10px auto;
+  padding: 10px 20px;
+  background-color: #007BFF; /* Customize the color as needed */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.buttonn:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+.goto{
+    text-align: center;
+}
+.post{
+    margin-right: 740px;
+}
+
+

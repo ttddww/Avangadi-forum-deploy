@@ -1,0 +1,22 @@
+.sform form textarea{
+   height: 200px;
+   width: 1320px;
+}
+.sform{
+    padding-top: 40px;
+}
+
+.sform .butt {
+    width: 10%;
+    height: 50px;
+    background-color: #0e04d2;;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
+}
+.sform  button:hover{
+    background-color: #2178d5;
+}

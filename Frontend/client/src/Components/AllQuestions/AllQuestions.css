@@ -1,0 +1,18 @@
+.all{
+    margin: 30px 200px;
+}
+.all hr{
+    color: #fcfafa;
+}
+.allq{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.allq:hover{
+    background-color: #f1ecec;
+}
+ a{
+    text-decoration: none;
+    color: rgb(1, 45, 102);
+}

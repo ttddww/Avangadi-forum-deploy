@@ -1,0 +1,25 @@
+.about{
+    font-size: larger;
+    height: 600px;
+    /* background-color: red; */
+    padding-top: 15px;
+}
+.about h1{
+    color: black;
+    font-size: xx-large;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+.about h3{
+    color: #e79964;;
+}
+.button{
+    background-color: #f3863e;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: medium;
+    cursor: pointer;
+    margin-top: 50px;
+}
