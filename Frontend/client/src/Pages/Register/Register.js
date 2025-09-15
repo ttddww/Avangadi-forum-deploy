@@ -48,7 +48,7 @@ function Register() {
             <p>
             Already have an account? {" "}
               <Link to={"/Login"} style={{ color: "orange" }}>
-                Sign in
+                Sign In
               </Link>
             </p>
           </div>

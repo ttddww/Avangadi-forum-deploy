@@ -1,0 +1,144 @@
+/* =============================
+   SingleQuestion.module.css
+   Only affects SingleQuestion.jsx
+   ============================= */
+
+.container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Question area */
+.questionBox {
+  margin-bottom: 2rem;
+}
+
+.questionTitle {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  color: #222;
+}
+
+.questionSubtitle {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #444;
+}
+
+.questionDescription {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* Answers section */
+.answersContainer {
+  margin-top: 2rem;
+}
+
+.answersHeading {
+  font-size: 1.4rem;
+  font-weight: 600;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.answerCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid #f0f0f0;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  background: #fafafa;
+}
+
+.answerAvatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.userInfo {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.3rem;
+}
+
+.answerText {
+  font-size: 0.95rem;
+  color: #444;
+}
+
+/* Ask / Answer section */
+.ask {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.askTitle {
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
+.askLink {
+  font-size: 0.9rem;
+  color: #0073e6;
+  text-decoration: none;
+}
+
+.askLink:hover {
+  text-decoration: underline;
+}
+
+/* Answer form */
+.answer_form {
+  margin-top: 1.5rem;
+}
+
+.answer_form form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.answer_form textarea {
+  min-height: 120px;
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  resize: vertical;
+  transition: border 0.2s ease;
+}
+
+.answer_form textarea:focus {
+  border-color: #0073e6;
+  outline: none;
+}
+
+.answer_form button {
+    width: 20%;
+  background: #0073e6;
+  color: white;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.answer_form button:hover {
+  background: #005bb5;
+}

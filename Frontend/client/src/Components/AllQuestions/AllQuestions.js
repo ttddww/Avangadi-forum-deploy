@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "../../axiosConfig";
 // import { AppState } from "../../App";
 import { Link } from "react-router-dom";
@@ -32,7 +32,7 @@ function AllQuestions() {
             <div className="allq">
               <div>
                 <IoPersonCircleOutline size={100} />
-                <p>{q.username}</p>
+                <p style={{marginLeft:'20px'}}>{q.username}</p>
               </div>
               <h3>{q.title}</h3>
               <MdDoubleArrow size={50} />

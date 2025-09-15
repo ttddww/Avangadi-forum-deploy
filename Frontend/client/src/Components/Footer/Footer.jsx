@@ -15,13 +15,13 @@ function Footer() {
             alt="evangadi logo"
           />
           <div className="icon">
-            <Link to="">
+            <Link to="https://www.facebook.com/evangaditech/">
               <PiFacebookLogoBold style={{ fontSize: "45px" }} />
             </Link>
-            <Link to="">
+            <Link to="https://www.instagram.com/evangaditech/?hl=en">
               <PiInstagramLogo style={{ fontSize: "45px" }} />
             </Link>
-            <Link to="">
+            <Link to="https://www.youtube.com/evangaditech">
               <RiYoutubeLine style={{ fontSize: "45px" }} />
             </Link>
           </div>

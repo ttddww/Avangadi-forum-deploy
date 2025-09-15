@@ -7,7 +7,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
+    padding: 0.5rem;
     background-color: #f5f5f5;
     padding-right: 200px;
     padding-left: 200px;
@@ -42,4 +42,18 @@
 }
 .hbuton:hover{
     background-color: #ff3300;
+}
+.btnh{
+    background-color: #3156ee;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.btnh:hover{
+    background-color: #4c81a4;
 }

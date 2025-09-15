@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import axios from '../../axiosConfig';
 import { Link, useNavigate } from 'react-router-dom';
 import About from '../../Components/About/About';
 import './Login.css'
+import axiosBase from '../../axiosConfig';
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -25,7 +25,7 @@ function Login() {
     }
 
     try {
-      const {data} = await axios.post("/users/Login", formData);
+      const {data} = await axiosBase.post("/users/Login", formData);
       alert("Login successful");
       localStorage.setItem("token", data.token);
       navigate("/");
@@ -36,7 +36,7 @@ function Login() {
   };
  
   return (
-    <section className='log'>
+    <section className="reg">
       <div className="login">
         <div className="formm inp">
           <div className="join">
@@ -58,6 +58,7 @@ function Login() {
               placeholder="  Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              required
             />
             <br />
             <br />
@@ -67,6 +68,7 @@ function Login() {
               placeholder="  Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              required
             />
             <br />
             <br />

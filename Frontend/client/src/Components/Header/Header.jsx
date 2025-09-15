@@ -1,29 +1,24 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./header.css";
 
-
-function Header() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Login state
+function Header() { 
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const location = useLocation();
   const navigate = useNavigate();
 
-  // Check for existing token in localStorage (optional)
+  // Check for existing token in localStorage
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
     setIsLoggedIn(!!storedToken); // Set login state based on token existence
-  }, []);
+  }, [location.pathname]);
 
-  // Handle login (use Login component)
-  const handleLogin = () => {
-    navigate("/"); // Navigate to Login component
-  };
-
-  // Handle logout
   const handleLogout = () => {
     localStorage.removeItem("token"); // Remove token from localStorage
     setIsLoggedIn(false); // Update login state
-    navigate("/login"); // Redirect to homepage
+    navigate("/login"); // Redirect to login page
   };
+  
 
   return (
     <section>
@@ -47,13 +42,11 @@ function Header() {
             <li>
               {isLoggedIn ? (
                 <button className="hbuton" onClick={handleLogout}>
-                  Logout
+                  LOG OUT
                 </button>
               ) : (
-                <Link to={"/login"} className="link">
-                  <button className="hbuton" onClick={handleLogin}>
-                    Login
-                  </button>
+                <Link to="/login" className="link">
+                  <button className="btnh">LOG IN</button>
                 </Link>
               )}
             </li>
@@ -65,44 +58,32 @@ function Header() {
 }
 
 export default Header;
-
+//!===============================================
 // import React, { useState, useEffect } from "react";
-// import { Link, useNavigate } from "react-router-dom";
+// import { Link, useLocation, useNavigate } from "react-router-dom";
 // import "./header.css";
 
 // function Header() {
-// //   const [isLoggedIn, setIsLoggedIn] = useState(false);
-// //   const navigate = useNavigate();
+//    const [isLoggedIn, setIsLoggedIn] = useState(false);
+//    const location = useLocation();
+//    useEffect(() => {
+//      // Update isSignedIn based on the current path
+//      setIsLoggedIn(
+//        location.pathname !== "/login" &&
+//          location.pathname !== "/Register" &&
+//          location.pathname !== "/"
+//      );
+//    }, [location.pathname]);
 
-// //   useEffect(() => {
-// //     // Check if a token exists in localStorage
-// //     const token = localStorage.getItem("token");
-// //     setIsLoggedIn(!!token); // Set isLoggedIn to true if token exists
-// //   }, []);
-
-// //   const handleAuthButtonClick = () => {
-// //     if (isLoggedIn) {
-// //       // Log out
-// //       localStorage.removeItem("token");
-// //       setIsLoggedIn(false);
-// //       navigate("/login");
-// //     } else {
-// //       // Navigate to login page
-// //       navigate("/login");
-// //     }
-// //   };
-
-// //   useEffect(() => {
-// //     if (!isLoggedIn) {
-// //       navigate("/login");
-// //     }
-// //   }, [isLoggedIn, navigate]);
+//    function handleLogout() {
+//      setIsLoggedIn(false);
+//    }
 
 //   return (
 //     <section>
 //       <div className="header-container">
 //         <div>
-//           <Link to="#">
+//           <Link to="/">
 //             <img
 //               src="https://forum.ibrodev.com/assets/evangadi-logo-5fea54cc.png"
 //               alt="evangadi logo"
@@ -112,17 +93,24 @@ export default Header;
 //         <div>
 //           <ul className="list-container">
 //             <li>
-//               <Link to="#">Home</Link>
+//               <Link to="/">Home</Link>
 //             </li>
 //             <li>
 //               <Link to="/how-it-works">How it works</Link>
 //             </li>
 //             <li>
-//               <button
-//             //   onClick={handleAuthButtonClick}
-//               >
-//                 {/* {isLoggedIn ? "Logout" : "Login"} */}Login
-//               </button>
+//               {isLoggedIn ? (
+//                 <button className="hbuton" onClick={handleLogout}>
+//                   Log In
+//                 </button>
+//               ) : (
+//                 <Link to={"/login"} className="link">
+//               <button className="btnh">LOG IN</button>
+//             </Link>
+//                 // <button className="hbuton" onClick={handleLogin}>
+//                 //   Login
+//                 // </button>
+//               )}
 //             </li>
 //           </ul>
 //         </div>

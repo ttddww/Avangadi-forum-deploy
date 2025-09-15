@@ -16,11 +16,7 @@ function Ask() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("userId", userId);
-    console.log("Title:", title);
-    console.log("Description:", description);
-    console.log("Tag:", tag);
-
+   
     if (!userId || !title || !description || !tag) {
       alert("Please fill in all fields");
       return;
@@ -46,7 +42,7 @@ function Ask() {
       alert(error?.response?.data?.msg || "An error occurred");
       console.log(error.message);
     }
-  };
+  }; 
 
   return (
     <section>
@@ -74,6 +70,7 @@ function Ask() {
                 placeholder="Title"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
+                required
               />
             </span>
             <br />
@@ -82,6 +79,7 @@ function Ask() {
                 placeholder="Question Description"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
+                required
               />
             </span>
             <br />
@@ -91,6 +89,7 @@ function Ask() {
                 placeholder="Tag"
                 value={tag}
                 onChange={(e) => setTag(e.target.value)}
+                required
               />
             </span>
             <br />

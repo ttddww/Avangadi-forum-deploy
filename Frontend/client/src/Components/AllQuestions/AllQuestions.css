@@ -1,5 +1,7 @@
 .all{
-    margin: 30px 200px;
+    /* margin: 20px 200px; */
+    margin-left: 200px;
+    margin-right: 200px;
 }
 .all hr{
     color: #fcfafa;
@@ -10,7 +12,7 @@
     align-items: center;
 }
 .allq:hover{
-    background-color: #f1ecec;
+    background-color: rgb(223, 223, 223);
 }
  a{
     text-decoration: none;
