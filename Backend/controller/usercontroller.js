@@ -4,9 +4,9 @@ const { StatusCodes } = require("http-status-codes");
 const jwt = require("jsonwebtoken");
 
 async function register(req, res) {
-  const { username, firstname, lastname, email, password } = req.body;
+  const { userName, firstName, lastName, email, password } = req.body;
 
-  if (!username || !firstname || !lastname || !email || !password) {
+  if (!userName || !firstName || !lastName || !email || !password) {
     return res
       .status(StatusCodes.BAD_REQUEST)
       .json({ msg: "All fields are required" });
@@ -14,8 +14,8 @@ async function register(req, res) {
 
   try {
     const [user] = await dbConnection.query(
-      "SELECT username, userId FROM users WHERE username = ? OR email = ?",
-      [username, email]
+      "SELECT userName, userId FROM users WHERE userName = ? OR email = ?",
+      [userName, email]
     );
 
     if (user.length > 0) {
@@ -34,8 +34,8 @@ async function register(req, res) {
     const hashedPassword = await bcrypt.hash(password, salt);
 
     await dbConnection.query(
-      "INSERT INTO users (username, firstname, lastname, email, password) VALUES (?, ?, ?, ?, ?)",
-      [username, firstname, lastname, email, hashedPassword]
+      "INSERT INTO users (userName, firstName, lastName, email, password) VALUES (?, ?, ?, ?, ?)",
+      [userName, firstName, lastName, email, hashedPassword]
     );
 
     return res.status(StatusCodes.CREATED).json({ msg: "User registered" });
@@ -57,7 +57,7 @@ async function login(req, res) {
   }
   try {
     const [user] = await dbConnection.query(
-      "SELECT username, userId, password FROM users WHERE email = ?",
+      "SELECT userName, userId, password FROM users WHERE email = ?",
       [email]
     );
 
@@ -75,13 +75,13 @@ async function login(req, res) {
         .json({ msg: "Invalid credentials" });
     }
 
-    const username = user[0].username;
+    const userName = user[0].userName;
     const userId = user[0].userId;
-    const token = jwt.sign({ username, userId }, process.env.JWT_SECRET, {
+    const token = jwt.sign({ userName, userId }, process.env.JWT_SECRET, {
       expiresIn: "1d",
     });
 
-    return res.status(StatusCodes.OK).json({ msg: "Login successful", token, username });
+    return res.status(StatusCodes.OK).json({ msg: "Login successful", token, userName, userId });
   } catch (error) {
     console.error(error.message);
     return res
@@ -92,9 +92,10 @@ async function login(req, res) {
 
 
 async function checkUser(req, res) {
-  const username = req.user.username;
-  const userId = req.user.userId;
-  res.status(StatusCodes.OK).json({ msg: "valid user", username, userId });
+  // const userName = req.user.userName;
+  // const userId = req.user.userId;
+  const { userName, userId } = req.user;
+  return res.status(StatusCodes.OK).json({ msg: "valid user", userName, userId });
 }
 
 module.exports = {

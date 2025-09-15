@@ -15,8 +15,8 @@ async function auth(req, res, next) {
 //   console.log(token);
 
   try {
-    const { username, userId } = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = { username, userId };
+    const { userName, userId } = jwt.verify(token, process.env.JWT_SECRET);
+    req.user = { userName, userId };
     next();
   } catch (error) {
     console.log(error.message);

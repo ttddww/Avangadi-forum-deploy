@@ -38,9 +38,9 @@ async function askQuestion(req, res) {
 const getAllQuestions = async (req, res) => {
   try {
     const [questions] = await dbConnection.query(
-      "SELECT q.title, q.description, q.questionId, u.username FROM questions q JOIN users u ON q.userId = u.userId ORDER BY q.Id DESC"
+      "SELECT q.title, q.description,q.tag, q.questionId, u.username FROM questions q JOIN users u ON q.userId = u.userId ORDER BY q.Id DESC"
     );
-    return res.status(StatusCodes.OK).json({ questions });
+    return res.status(StatusCodes.OK).json( {questions});
   } catch (error) {
     console.error("Error fetching questions:", error.message);
     return res
@@ -50,7 +50,7 @@ const getAllQuestions = async (req, res) => {
 };
 
 const singleQuestion = async (req, res) => {
-  const { questionId } = req.params;
+  const {questionId }= req.params;
   console.log("Received questionId:", questionId);
 
   try {
@@ -70,9 +70,9 @@ const singleQuestion = async (req, res) => {
   }
 };
 
-async function checkUser(req, res) {
-  const { username, userId } = req.user;
-  res.status(StatusCodes.OK).json({ msg: "Valid user", username, userId });
-}
+// async function checkUser(req, res) {
+//   const { username, userId } = req.user;
+//   res.status(StatusCodes.OK).json({ msg: "Valid user", username, userId });
+// }
 
-module.exports = { askQuestion, getAllQuestions, singleQuestion, checkUser };
+module.exports = { askQuestion, getAllQuestions, singleQuestion };

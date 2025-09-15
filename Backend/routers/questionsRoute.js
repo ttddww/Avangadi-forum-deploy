@@ -6,15 +6,15 @@ const {
   askQuestion,
   getAllQuestions,
   singleQuestion,
-  checkUser,
+  // checkUser,
 } = require("../controller/questionController");
 
 // ask questions
-router.post("/ask", askQuestion);
+router.post("/ask",auth, askQuestion);
 router.get("/all-questions", getAllQuestions);
 router.get("/:questionId", singleQuestion);
 
-// check user
-router.get("/check", auth, checkUser);
+// // check user
+// router.get("/check", auth, checkUser);
 
 module.exports = router;

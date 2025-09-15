@@ -3,15 +3,17 @@ const router = express.Router();
 
 const auth = require("../auth/auth");
 const {
-  singleAnswer,
+  createAnswer,
+  singleQuestionAnswers,
   allAnswers,
-  checkUser,
+  // checkUser,
 } = require("../controller/answerController");
 
-router.post("/singleAnswer", singleAnswer);
-router.get("/all-answers", allAnswers);
+router.post("/createAnswer", auth, createAnswer);
+router.get("/answer/:questionId", singleQuestionAnswers);
+router.get("/allAnswers", allAnswers);
 
-// check user
-router.get("/check", auth, checkUser);
+// // check user
+// router.get("/check", auth, checkUser);
 
 module.exports = router;

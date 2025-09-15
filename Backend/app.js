@@ -20,16 +20,16 @@ app.use("/api/questions", questionRoutes);
 // answers routes middle ware
 app.use("/api/answers", answerRoutes);
 
-async function start(){
+async function abebe(){
     try {
-       const result = await dbConnection.execute("select 'test'");
+      const [result] = await dbConnection.execute("select 'test'");
       await app.listen(port)
-      console.log("dbConnect stablished")
+      console.log("dbConnect established")
       console.log(`listening on ${port}`)
     } catch (error) {
         console.log(error.message)
     }
 };
 
-start();
+abebe();
 
